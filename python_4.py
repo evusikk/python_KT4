@@ -7,7 +7,7 @@ class User:
         self._password = password
         self._grade = grade
 
-        if self.__class__ is User:
+        if type(self) is User:
             User.count += 1
 
     @property
@@ -24,11 +24,11 @@ class User:
 
     @login.setter
     def login(self, value):
-        print('Невозможно изменить логин!')
+        print("Невозможно изменить логин!")
 
     @property
     def password(self):
-        return '********'
+        return "********"
 
     @password.setter
     def password(self, value):
@@ -36,14 +36,14 @@ class User:
 
     @property
     def grade(self):
-        print('Неизвестное свойство grade')
+        return "Неизвестное свойство grade"
 
     @grade.setter
     def grade(self, value):
-        print('Неизвестное свойство grade')
+        print("Неизвестное свойство grade")
 
     def show_info(self):
-        print(f'Name: {self._name}, Login: {self._login}')
+        print(f"Name: {self.name}, Login: {self.login}")
 
     def __lt__(self, other):
         return self._grade < other._grade
@@ -72,7 +72,7 @@ class SuperUser(User):
         self._role = value
 
     def show_info(self):
-        print(f'Name: {self._name}, Login: {self._login}')
+        print(f"Name: {self.name}, Login: {self.login}, Role: {self.role}")
 
 
 print("\nтест_1")
